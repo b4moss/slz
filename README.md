@@ -1,73 +1,85 @@
-# slz: Super Laziness
-You know the sentence "laziness is virtue". This CLI realize it your dark screen.
+# repo-ruleset-src-repo
 
-`slz`は、 **たまによく使う** （言葉としておかしいかもしれないが、そういうことありますよね？）コマンドを簡便に実行できるツール群です。
-ユーザーのよく使うコマンドを登録することもできます。
+GitHub リポジトリ向けの **ruleset 定義**と、作成・適用用の CLI です。
 
-例:
+Gitea への自動同期は対象外です。Organization ruleset も無料プランでは使えないため、**リポジトリ単位**で適用します。
 
-- 不可視ファイルを含んだ `mv`
-- glob にマッチする git branch をまとめて削除（`git branch -D`）
+## 前提
+
+- [`gh`](https://cli.github.com/)（対象リポの **admin** で `gh auth login` 済み）
+- `jq`
+- `make`（任意。scripts を直接実行してもよい）
+
+### プラン制約（GitHub Free）
+
+| 機能 | Free Organization |
+|------|-------------------|
+| Organization ruleset | 不可 |
+| Repository ruleset | **public のみ** |
+| private の ruleset / branch protection | Pro / Team 以上が必要 |
+
+`make create` のデフォルトは `VISIBILITY=public` です。
+
+## 定義ファイル
+
+| ファイル | 対象 |
+|----------|------|
+| [`.github/rulesets/standard-branch-policy.json`](.github/rulesets/standard-branch-policy.json) | `main` / `develop` / `staging` / `release` / `dev-v*` |
+| [`.github/rulesets/standard-tag-policy.json`](.github/rulesets/standard-tag-policy.json) | `refs/tags/v*` |
+
+ブランチ側の要点:
+
+- 削除禁止・force-push 禁止
+- PR 必須（approve 数は 0）
+- Repository admin（`RepositoryRole` id=5）は bypass 可
+- `feature/*` は対象外（日常の直接 push を縛らない）
+
+## 使い方
+
+### 新規リポ作成 + ruleset 適用（推奨）
 
 ```bash
-slz mv . ../
-slz git rm-branches 'dev-*'
+make create REPO=OWNER/new-app
+# 同等:
+#   ./scripts/create-repo-with-rulesets.sh OWNER/new-app --public
 ```
 
-## 役割分担
-
-Go は **ディスパッチャ兼、公式コマンドの実装**。シェルは **ユーザー拡張専用**。
-
-| | ビルトイン | ユーザー追加 |
-|--|--|--|
-| 置き場 | Go のコード | `~/.config/slz/commands/` など |
-| 対話・色 | Go で持つ | 自分でやる（`read` で十分） |
-| 依存 | `slz` だけ | そのスクリプトが呼ぶコマンド |
-
-名前が衝突したら **ビルトインが勝つ**。同じ名前のユーザーコマンドがある場合は警告する。
-
-きれいな対話や確認が必要になったコマンドは、ユーザースクリプトのまま伸ばすのではなく **ビルトインへ昇格** する。
-
-## 対話
-
-フラグがあれば非対話。なければ TTY 上で、足りない項目だけ聞く。全部をウィザードにはしない。
+オプション例:
 
 ```bash
-slz git rm-branches                  # パターンを聞く → 対象を出す → 確認
-slz git rm-branches 'dev-*'          # 対象を出す → 確認
-slz git rm-branches 'dev-*' -y       # 確認も省略
-slz git rm-branches 'dev-*' --dry-run
+make create REPO=OWNER/new-app VISIBILITY=public CREATE_FLAGS="--clone --description demo"
 ```
 
-- パイプや CI（非 TTY）では聞かない。未指定ならエラーにする
-- 破壊的な操作は **一覧 → 確認** を省略しない。`-y` だけが確認を飛ばす
-- 対象の解決（隠しファイル込みの列挙、branch の glob マッチ）はシェルの glob に頼らず `slz` が行う
+### 既存リポへ後付け / 更新
 
-ビルトインの対話・色付けに `fzf` や `gum` は必須にしない。それらはユーザーが入れる別コマンドであり、`slz` の配布物はバイナリ 1 個に留める。Go 側のライブラリ（例: `huh`）はビルド時の依存であり、利用者への要求ではない。
+```bash
+make apply REPO=OWNER/existing-app
+```
 
-ユーザースクリプト向けの `slz prompt` は、必要になってから足す。最初は用意しない。
+同名 ruleset があれば更新、なければ作成します。
 
-## 外部コマンド（`gh` / `aws` / `gcloud` など）
+### 適用確認
 
-標準では入っていないが、よく入っている CLI を `slz` が配布・バンドルすることはしない。パッケージマネージャにはならない。
+```bash
+make check REPO=OWNER/existing-app BRANCH=main
+```
 
-1. コマンドが必要なバイナリを宣言する（例: `deps: [gh]`）
-2. `slz doctor` が PATH を見て足りないものを出す
-3. 導入は既存ツールに委譲する（`brew install` を案内する、など）
+内部では `gh ruleset list` と `gh ruleset check` を実行します。
 
-`slz` の仕事は「入っていれば便利コマンドが使える」「入っていなければ何が足りないか言う」まで。
+## 初回フロー（イメージ）
 
-## 技術スタック
+1. このリポジトリを clone する（定義とスクリプトのソース）
+2. `gh auth login`（適用先リポの admin 権限があるアカウント）
+3. `make create REPO=OWNER/new-app`
+4. `make check REPO=OWNER/new-app` で確認
 
-- Go / cobra（ディスパッチャとビルトイン）
-- shell（ユーザーが追加するコマンド）
+利用者の手作業は上記までです。GitHub UI での Rulesets 設定は不要です。
 
-## 対応OS
+## 権限について
 
-- ✅ macOS
+ruleset の作成・更新にはリポジトリ admin が必要です。  
+Secret や bot は使いません。リポを作る人が、作成と同時に自分の `gh` 認証で適用する想定です。
 
-（以降執筆中）
-
-----
+-----
 
 以上
