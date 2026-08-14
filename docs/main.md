@@ -53,7 +53,7 @@ mac コマンド（`mac dim` など）はコンテナでは動かさない。`GO
 
 CLI の骨格は **cobra**（v0.1.0 から）。バージョン文字列は当面ハードコードする（`slz --version` → `slz version 0.1.0`）。
 
-テスト仕様書は版ごとに `docs/tests/`（v0.1.0 は [tests/v0.1.0.md](./tests/v0.1.0.md)）。自動テストの実装と CI は **v0.2.0 から**。
+テスト仕様書は版ごとに `docs/tests/`（v0.1.0 は [tests/v0.1.0.md](./tests/v0.1.0.md)、v0.2.0 は [tests/v0.2.0.md](./tests/v0.2.0.md)）。自動テストの実装と CI は **v0.2.0 から**。CI は `develop` / `dev-v*` 向け PR のみ。
 
 ## 役割分担
 
