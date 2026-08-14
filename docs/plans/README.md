@@ -4,7 +4,7 @@
 
 | パス | マイルストーン | 状態 |
 | --- | --- | --- |
-| [v0.1.0/scaffold.md](./v0.1.0/scaffold.md) | v0.1.0 | 方針確定 |
+| [v0.1.0/scaffold.md](./v0.1.0/scaffold.md) | v0.1.0 | 仕様詳細 |
 | [v0.2.0/usecases.md](./v0.2.0/usecases.md) | v0.2.0 | 方針確定 |
 | [v0.3.0/revisit.md](./v0.3.0/revisit.md) | v0.3.0 | 意図スタブ |
 | [unscheduled/usecases.md](./unscheduled/usecases.md) | unscheduled | 意図スタブ |

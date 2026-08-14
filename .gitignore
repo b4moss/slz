@@ -4,3 +4,8 @@ Thumbs.db
 .vscode/
 .idea/
 node_modules/
+
+# Go build artifacts
+/slz
+bin/
+*.exe
