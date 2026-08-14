@@ -1,11 +1,13 @@
 # v0.2.0 最初のユースケース
 
-- **状態**: 方針確定
+- **状態**: 仕様詳細
 - **マイルストーン**: `v0.2.0`
 
 スキャフォールドの上に、次だけ実装する。`huh` は入れない（cobra の help と非対話で足りる）。
 
-実装に入る直前にテスト仕様書 `docs/tests/v0.2.0.md` を書く（`--version` の自動テストも含む）。CI もこの版から入れる。
+検証内容は [tests/v0.2.0.md](../../tests/v0.2.0.md)。Go は **1.25**（パッチはコンテナ側で追う）。
+
+CI もこの版から入れる。回すのは **`develop` および `dev-v*` 向け PR のみ**（それ以外の base では走らせない）。
 
 mac コマンドは Dev Container では動かさない。`GOOS=darwin` でクロスビルドし、**ホストの macOS で確認**する。未対応 OS ではエラー。
 
@@ -33,7 +35,7 @@ slz setup
 slz config
 ```
 
-設定ファイルの **中身** を標準出力に出す。無ければエラー（`slz setup` を案内）。`$EDITOR` で開く・キーの get/set は後回し。
+設定ファイルの **中身** を標準出力に出す。無ければエラー（`slz setup` を案内）。`$EDITOR` で開く・キーの get/set は後回し。空 config の `<blank>` 表示は [v0.3.0](../v0.3.0/revisit.md)。
 
 ### `slz --help`
 
@@ -51,7 +53,7 @@ slz --help
 slz mac dim
 ```
 
-`caffeinate` でスリープを抑え、`pmset displaysleepnow` で画面を消す。プロセスは **前面で待つ**（Ctrl+C で `caffeinate` が終わり、通常のスリープに戻る）。バックグラウンド化や専用の止めコマンドは後回し。macOS 以外ではエラー。
+`caffeinate` でスリープを抑え、`pmset displaysleepnow` で画面を消す。プロセスは **前面で待つ**（Ctrl+C で `caffeinate` が終わり、通常のスリープに戻る）。バックグラウンド化や専用の止めコマンドは後回し。macOS 以外ではエラー。復帰時の常駐解除は [v0.3.0](../v0.3.0/revisit.md)（v0.2.0 は Ctrl+C で止めるまま）。
 
 ## 含まないもの
 

@@ -53,7 +53,7 @@ mac コマンド（`mac dim` など）はコンテナでは動かさない。`GO
 
 CLI の骨格は **cobra**（v0.1.0 から）。バージョン文字列は当面ハードコードする（`slz --version` → `slz version 0.1.0`）。
 
-テスト仕様書は版ごとに `docs/tests/`（v0.1.0 は [tests/v0.1.0.md](./tests/v0.1.0.md)）。自動テストの実装と CI は **v0.2.0 から**。
+テスト仕様書は版ごとに `docs/tests/`（v0.1.0 は [tests/v0.1.0.md](./tests/v0.1.0.md)、v0.2.0 は [tests/v0.2.0.md](./tests/v0.2.0.md)）。自動テストの実装と CI は **v0.2.0 から**。CI は `develop` / `dev-v*` 向け PR のみ。
 
 ## 役割分担
 
@@ -173,7 +173,7 @@ $XDG_CACHE_HOME/slz/           # 未設定なら ~/.cache/slz/
 
 - v0.1.0: スキャフォールド、Dev Container、`slz -v` → [roadmap.md](./roadmap.md)
 - v0.2.0: `setup` / `config` / `--help` / `mac dim`
-- v0.3.0: v0.2.0 完了時に再検討
+- v0.3.0: `mac dim` 復帰時の常駐解除、空 `config.yaml` の `<blank>` 表示。その他は v0.2.0 完了時に再検討
 - 版未定のユースケース → [plans/unscheduled/usecases.md](./plans/unscheduled/usecases.md)
 - キャッシュ実装、`slz prompt`、コマンドのディレクトリネスト → [plans/unscheduled/future-intents.md](./plans/unscheduled/future-intents.md)
 
