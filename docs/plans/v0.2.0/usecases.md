@@ -35,7 +35,7 @@ slz setup
 slz config
 ```
 
-設定ファイルの **中身** を標準出力に出す。無ければエラー（`slz setup` を案内）。`$EDITOR` で開く・キーの get/set は後回し。
+設定ファイルの **中身** を標準出力に出す。無ければエラー（`slz setup` を案内）。`$EDITOR` で開く・キーの get/set は後回し。空 config の `<blank>` 表示は [v0.3.0](../v0.3.0/revisit.md)。
 
 ### `slz --help`
 
@@ -53,7 +53,7 @@ slz --help
 slz mac dim
 ```
 
-`caffeinate` でスリープを抑え、`pmset displaysleepnow` で画面を消す。プロセスは **前面で待つ**（Ctrl+C で `caffeinate` が終わり、通常のスリープに戻る）。バックグラウンド化や専用の止めコマンドは後回し。macOS 以外ではエラー。
+`caffeinate` でスリープを抑え、`pmset displaysleepnow` で画面を消す。プロセスは **前面で待つ**（Ctrl+C で `caffeinate` が終わり、通常のスリープに戻る）。バックグラウンド化や専用の止めコマンドは後回し。macOS 以外ではエラー。復帰時の常駐解除は [v0.3.0](../v0.3.0/revisit.md)（v0.2.0 は Ctrl+C で止めるまま）。
 
 ## 含まないもの
 

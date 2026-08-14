@@ -8,11 +8,12 @@
 版が付いたもの:
 
 - v0.2.0: `setup` / `config` / `--help` / `mac dim` → [v0.2.0/usecases.md](../v0.2.0/usecases.md)
-- v0.3.0 以降: [v0.3.0/revisit.md](../v0.3.0/revisit.md) で再検討
+- v0.3.0: `slz mac dim` 復帰時の常駐解除、空 `config.yaml` の `<blank>` 表示 → [v0.3.0/revisit.md](../v0.3.0/revisit.md)
+- v0.3.0 以降のその他: [v0.3.0/revisit.md](../v0.3.0/revisit.md) で再検討
 
 ## `slz mac dim`
 
-v0.2.0。正本は [v0.2.0/usecases.md](../v0.2.0/usecases.md)。
+v0.2.0。正本は [v0.2.0/usecases.md](../v0.2.0/usecases.md)。dim 復帰時の `caffeinate` 解除は [v0.3.0](../v0.3.0/revisit.md)。
 
 ## `slz mac awake`
 

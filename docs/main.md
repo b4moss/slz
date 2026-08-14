@@ -173,7 +173,7 @@ $XDG_CACHE_HOME/slz/           # 未設定なら ~/.cache/slz/
 
 - v0.1.0: スキャフォールド、Dev Container、`slz -v` → [roadmap.md](./roadmap.md)
 - v0.2.0: `setup` / `config` / `--help` / `mac dim`
-- v0.3.0: v0.2.0 完了時に再検討
+- v0.3.0: `mac dim` 復帰時の常駐解除、空 `config.yaml` の `<blank>` 表示。その他は v0.2.0 完了時に再検討
 - 版未定のユースケース → [plans/unscheduled/usecases.md](./plans/unscheduled/usecases.md)
 - キャッシュ実装、`slz prompt`、コマンドのディレクトリネスト → [plans/unscheduled/future-intents.md](./plans/unscheduled/future-intents.md)
 
