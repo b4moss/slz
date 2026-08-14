@@ -17,13 +17,32 @@ v0.2.0。正本は [v0.2.0/usecases.md](../v0.2.0/usecases.md)。dim 復帰時�
 
 ## `slz mac awake`
 
-利用者は、画面は消さず、Mac のスリープだけ止める。`mac dim` の対。
+利用者は、画面は消さず、Mac のスリープだけ止める。`mac dim` の対。caffeinate 相当（暗くしない）。版未定。v0.3.0 には入れない。
 
 ```bash
 slz mac awake
 ```
 
-`caffeinate` を前面で待つか裏で持つかは実装時に決める。
+CLI のまま。メニューバー、画面オーバーレイ、タイトルバーの文字色は持たない（移植可能な手段がない）。それらが要るときは別配布の [`slz awake indicator`](#slz-awake-indicator)。
+
+目印は、awake 中だけ端末のウィンドウ／タブの **タイトル文字列だけ** を上書きする（例: `slz awake`）。終了時は元のタイトルに戻す。タイトルに ANSI 色は入れない。iTerm2 専用のタブ色も使わない。前面占有だけでは足りない（`slz mac awake &` や Ctrl-Z で見えなくなる）。
+
+timeout、通知センター、`--stop` などの追加フラグは持たない。`caffeinate` を前面で待つか裏で持つかは実装時に決める。
+
+## `slz awake indicator`
+
+（PO の綴り `inidicator` は誤記。名前は `slz awake indicator`。）
+
+CLI バイナリには含めない。別配布。版未定。v0.3.0 には入れない。
+
+macOS のスタンドアロン GUI アプリ。仕事は **awake がオンであることだけを示す**（メニューバー＝ツールバー／ステータス項目、および／または画面オーバーレイ）。`mac awake` が動いているときに使う。Amphetamine / Caffeine 型の付属であり、slz ディスパッチャそのものではない。
+
+ふたつの製品は分ける。
+
+1. `slz` CLI — `mac awake` と端末タイトル文字列
+2. `slz awake indicator` — 任意の付属 `.app`
+
+CLI と別配布。起動の結び方は未決。
 
 ## `slz mac dns-flush`
 
