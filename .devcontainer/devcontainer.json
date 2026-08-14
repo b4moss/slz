@@ -1,5 +1,5 @@
 {
   "name": "slz",
-  "image": "mcr.microsoft.com/devcontainers/go:1.26",
+  "image": "mcr.microsoft.com/devcontainers/go:1.25",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
 }
