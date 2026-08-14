@@ -67,13 +67,11 @@ Go は **ディスパッチャ兼、公式コマンドの実装**。シェルは
 
 名前が衝突したら **ビルトインが勝つ**。同じ名前のユーザーコマンドがある場合は警告する。きれいな対話が必要になったら、ユーザースクリプトのまま伸ばさず **ビルトインへ昇格** する。
 
-薄い DDD の読み替え（CLI。CRUD Trait / Repository は使わない）:
+CLI なので、薄い DDD の層や CRUD Trait にそのまま準拠しなくてよい（[charter](./charter/README.md)）。思想は守る。
 
-| 層 | slz |
-|--|--|
-| Controller | cobra のサブコマンド（1 ユースケース 1 コマンド） |
-| Service | 対象の解決、確認、外部コマンド呼び出し |
-| Repository | 置かない |
+- 1 ユースケース 1 コマンド
+- 入口（引数・フラグ）と、対象の解決・実行を分ける
+- 永続化が無いので Repository / CRUD は置かない
 
 詳細は [roadmap.md](./roadmap.md)。
 
@@ -85,7 +83,7 @@ Go は **ディスパッチャ兼、公式コマンドの実装**。シェルは
 slz/
 ├── cmd/slz/main.go              # 入口だけ。cobra を起動する
 ├── internal/
-│   ├── cli/                     # Controller（cobra）
+│   ├── cli/                     # cobra（入口・フラグ）
 │   │   ├── root.go              # ディスパッチャ、初回 doctor warning
 │   │   ├── mv.go                # slz mv
 │   │   ├── cp.go
@@ -96,7 +94,7 @@ slz/
 │   ├── prompt/                  # 確認・入力・TTY / -y / --dry-run
 │   ├── config/                  # XDG、config.yaml、commands/ 探索
 │   ├── doctor/                  # PATH 検査、スタンプ
-│   ├── mv/                      # Service（対象解決と実行）
+│   ├── mv/                      # 対象解決と実行
 │   ├── gitrm/                   # git rm-branches
 │   └── usercmd/                 # ユーザースクリプトの exec
 ├── .devcontainer/
@@ -108,16 +106,16 @@ slz/
 └── README.md
 ```
 
-| 層 | 置き場 |
+| 役割 | 置き場 |
 |--|--|
 | 入口 | `cmd/slz` |
-| Controller | `internal/cli`（1 ユースケース 1 ファイル、または 1 サブコマンド群） |
-| Service | `internal/mv` など（ドメイン名。`controllers` / `services` フォルダは作らない） |
+| cobra（引数・フラグ） | `internal/cli`（1 ユースケース 1 ファイル、または 1 サブコマンド群） |
+| 対象解決と実行 | `internal/mv` など（ドメイン名。`controllers` / `services` フォルダは作らない） |
 | 共用 | `internal/prompt` / `config` / `doctor` |
 
 - コードのテストは隣（`internal/mv/mv_test.go`）。テスト仕様書は `docs/tests/`（実装に入るときに足す）
 - ユーザーコマンドはリポジトリではなく `$XDG_CONFIG_HOME/slz/commands/`
-- `mac` / `port` / `s3` などは版が来てから `internal/cli/` と対応する Service を足す
+- `mac` / `port` / `s3` などは版が来てから `internal/cli/` と対応する実装を足す
 
 v0.1.0 の最小（空なら `.gitkeep`。`-v` 用の入口と `go.mod`、Dev Container は実ファイル）:
 
@@ -183,8 +181,7 @@ $XDG_CACHE_HOME/slz/           # 未設定なら ~/.cache/slz/
 
 - 目的・方針: 本ファイル
 - これから: [roadmap.md](./roadmap.md) / [plans/](./plans/README.md)
-- 守るルール: [charter/](./charter/README.md)
-- 本リポの git 上書き: [git.md](./git.md)
+- 守るルール: [charter/](./charter/README.md)（git は [git-rule.md](./charter/git-rule.md)）
 - PO メモ: [wishlist.md](./wishlist.md)
 
 ----
