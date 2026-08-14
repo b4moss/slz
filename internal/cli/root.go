@@ -12,6 +12,8 @@ func Execute() {
 	rootCmd := &cobra.Command{
 		Use:     "slz",
 		Version: Version,
+		Args:    cobra.NoArgs,
+		Run:     func(cmd *cobra.Command, args []string) {},
 	}
 	rootCmd.SetVersionTemplate("slz version {{.Version}}\n")
 	rootCmd.Flags().Bool("version", false, "version for slz")
