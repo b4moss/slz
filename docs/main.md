@@ -51,9 +51,9 @@ slz git rm-branches 'dev-*'
 
 mac コマンド（`mac dim` など）はコンテナでは動かさない。`GOOS=darwin` でクロスビルドし、**ホストの macOS で確認**する。コンテナ内や未対応 OS で mac コマンドを実行したらエラーでよい。
 
-CLI の骨格は **cobra**（v0.1.0 から）。バージョン文字列は当面ハードコードする（`slz -v` → `slz version 0.1.0`）。
+CLI の骨格は **cobra**（v0.1.0 から）。バージョン文字列は当面ハードコードする（`slz --version` → `slz version 0.1.0`）。
 
-テスト仕様書と CI は **v0.2.0 から**。v0.1.0 は手元スモークのみ。v0.2.0 の実装に入る直前に `docs/tests/v0.2.0.md` を書く。
+テスト仕様書は版ごとに `docs/tests/`（v0.1.0 は [tests/v0.1.0.md](./tests/v0.1.0.md)）。自動テストの実装と CI は **v0.2.0 から**。
 
 ## 役割分担
 
@@ -117,7 +117,7 @@ slz/
 - ユーザーコマンドはリポジトリではなく `$XDG_CONFIG_HOME/slz/commands/`
 - `mac` / `port` / `s3` などは版が来てから `internal/cli/` と対応する実装を足す
 
-v0.1.0 の最小（空なら `.gitkeep`。`-v` 用の入口と `go.mod`、Dev Container は実ファイル）:
+v0.1.0 の最小（空なら `.gitkeep`。`--version` 用の入口と `go.mod`、Dev Container は実ファイル）:
 
 ```text
 cmd/slz/main.go
