@@ -5,15 +5,10 @@
 
 コマンド名は決めた。詳細なサブコマンド・対話は、注記があるもの以外は後日決定する。版が決まったら `plans/vX.Y.Z/` へ移し、実装後は `docs/specs/` へ移す。
 
-版が付いたもの:
+出荷済:
 
-- v0.2.0: `setup` / `config` / `--help` / `mac dim` → [v0.2.0/usecases.md](../v0.2.0/usecases.md)
-- v0.3.0: `slz mac dim` 復帰時の常駐解除、空 `config.yaml` の `<blank>` 表示 → [v0.3.0/revisit.md](../v0.3.0/revisit.md)
-- v0.3.0 以降のその他: [v0.3.0/revisit.md](../v0.3.0/revisit.md) で再検討
-
-## `slz mac dim`
-
-v0.2.0。正本は [v0.2.0/usecases.md](../v0.2.0/usecases.md)。dim 復帰時の `caffeinate` 解除は [v0.3.0](../v0.3.0/revisit.md)。
+- `setup` / `config` / `--help` / `mac dim` → [specs/](../../specs/README.md)
+- dim 復帰時の `caffeinate` 解除・空 config の `<blank>` → [v0.3.0/revisit.md](../v0.3.0/revisit.md)
 
 ## `slz mac awake`
 
@@ -22,8 +17,6 @@ v0.2.0。正本は [v0.2.0/usecases.md](../v0.2.0/usecases.md)。dim 復帰時�
 ```bash
 slz mac awake
 ```
-
-`caffeinate` を前面で待つか裏で持つかは実装時に決める。
 
 ## `slz mac dns-flush`
 
@@ -115,29 +108,15 @@ slz gcloud
 slz git remote add origin gh
 ```
 
-未決:
+## 候補（版未割当）
 
-- `origin` が既にあるとき（エラー / `set-url` / 確認）
-- SSH か HTTPS か（`gh` の既定に寄せてよいことが多い）
-- 自分の repo だけか、org も出すか
-
-## 未決（要検討）
-
-### `slz git gone`
-
-remote 側で消えた tracking branch をまとめて消す。`git rm-branches`（glob）とは入力が違う別ユースケース。確認は必須。採用してよいが、まだ版には入れない。
-
-### `slz git wip` / git-fire 相当
-
-ローカルの一時 commit と、push まで含む緊急退避は別物。一つの `wip` に push を足すと、日常の退避が remote に出る。分けるなら `slz git wip`（ローカル）と `slz git fire`（push まで）。
-
-### `slz gh pr`
-
-今の branch の PR をブラウザで開く、に閉じるなら採用してよい。`gh pr create` は `gh` 本体がすでに対話なので、slz が被せる価値は薄い。作る・一覧まで入れるかは後日。
+- `slz git gone` — remote 側で消えた tracking branch をまとめて消す（確認必須）
+- `slz git wip` / `slz git fire` — ローカル一時 commit と、push まで含む緊急退避は分ける
+- `slz gh pr` — 今の branch の PR をブラウザで開くに閉じるなら採用可
 
 ## 見送り
 
-- httpd の再起動 — 一旦見送り
+- httpd の再起動
 
 ----
 
