@@ -1,8 +1,10 @@
-# v0.2.0 テスト仕様
+# v0.2.0 テスト仕様（歴史資料）
+
+> 現行の正本ではない。現行はドメイン別に [docs/tests/](../../tests/README.md) へ分割済み。
 
 最初のユースケースと `--version` の自動テスト。Go は 1.25。CI は `develop` / `dev-v*` 向け PR のみ。
 
-関連: [specs/](../specs/README.md) / [main.md](../main.md) / [tests/v0.1.0.md](./v0.1.0.md)
+関連（当時）: [specs/](../../specs/README.md) / [README.md](../../README.md) / [tests-v0.1.0.md](./tests-v0.1.0.md)
 
 前提:
 

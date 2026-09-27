@@ -9,7 +9,9 @@
 | [config.md](./config.md) | `slz config` |
 | [mac.md](./mac.md) | `slz mac dim` |
 
-ハブ: [main.md](../main.md) / [roadmap.md](../roadmap.md)
+検証: [tests/](../tests/README.md)（同じドメイン切り）
+
+ハブ: [README.md](../README.md) / [roadmap.md](../roadmap.md)
 
 ----
 
