@@ -24,7 +24,7 @@ slz version 0.2.0
 - help は設定ディレクトリを作らない。外部コマンドも起動しない
 - `huh` は使わない
 
-検証: [tests/v0.2.0.md](../tests/v0.2.0.md)
+検証: [tests/cli.md](../tests/cli.md)
 
 ----
 

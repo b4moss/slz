@@ -5,10 +5,7 @@
 
 コマンド名は決めた。詳細なサブコマンド・対話は、注記があるもの以外は後日決定する。版が決まったら `plans/vX.Y.Z/` へ移し、実装後は `docs/specs/` へ移す。
 
-出荷済:
-
-- `setup` / `config` / `--help` / `mac dim` → [specs/](../../specs/README.md)
-- dim 復帰時の `caffeinate` 解除・空 config の `<blank>` → [v0.3.0/revisit.md](../v0.3.0/revisit.md)
+出荷済の正本は [specs/](../../specs/README.md)。v0.3.0 の未実装差分は [v0.3.0/revisit.md](../v0.3.0/revisit.md)。
 
 ## `slz mac awake`
 

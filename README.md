@@ -16,7 +16,7 @@ slz mv . ../
 slz git rm-branches 'dev-*'
 ```
 
-設計の正本は [docs/main.md](./docs/main.md)。ロードマップは [docs/roadmap.md](./docs/roadmap.md)。
+設計の正本は [docs/README.md](./docs/README.md)。ロードマップは [docs/roadmap.md](./docs/roadmap.md)。OKF 索引は [docs/index.md](./docs/index.md)。
 
 ----
 

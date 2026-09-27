@@ -4,7 +4,7 @@
 
 ## 現状
 
-現行リリースは **v0.2.0**（`internal/cli` の `Version`、タグ `v0.1.0` / `v0.2.0`）。プロダクト方針のハブは [main.md](./main.md)。
+現行リリースは **v0.2.0**（`internal/cli` の `Version`、タグ `v0.1.0` / `v0.2.0`）。プロダクト方針のハブは [README.md](./README.md)（pillar）。
 
 | 版 | 内容 | 状態 | 正本 |
 | --- | --- | --- | --- |

@@ -20,7 +20,7 @@ slz mac dim
 
 復帰時の常駐解除は未実装（[plans/v0.3.0/revisit.md](../plans/v0.3.0/revisit.md)）。
 
-検証: [tests/v0.2.0.md](../tests/v0.2.0.md)。実機確認はホストの macOS。
+検証: [tests/mac.md](../tests/mac.md)。実機確認はホストの macOS。
 
 ----
 

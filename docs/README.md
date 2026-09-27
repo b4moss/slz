@@ -53,7 +53,7 @@ mac コマンド（`mac dim` など）はコンテナでは動かさない。`GO
 
 CLI の骨格は **cobra**。バージョン文字列はハードコード（`slz --version` → `slz version 0.2.0`）。詳細は [specs/cli.md](./specs/cli.md)。
 
-テスト仕様書は版ごとに `docs/tests/`。自動テストと CI あり。CI は `develop` / `dev-v*` 向け PR のみ。
+テスト仕様は `docs/tests/` を specs と同じドメイン切りで置く。自動テストと CI あり。CI は `develop` / `dev-v*` 向け PR のみ。
 
 ## 役割分担
 
@@ -162,8 +162,10 @@ $XDG_CACHE_HOME/slz/           # 未設定なら ~/.cache/slz/
 
 ## ドキュメントの読み方
 
-- 目的・方針: 本ファイル
+- 目的・方針: 本ファイル（pillar）
+- OKF 索引: [index.md](./index.md)
 - 現行の振る舞い: [specs/](./specs/README.md)
+- テスト仕様: [tests/](./tests/README.md)
 - これから: [roadmap.md](./roadmap.md) / [plans/](./plans/README.md)
 - 守るルール: [charter/](./charter/README.md)（git は [git-rule.md](./charter/git-rule.md)）
 - PO メモ: [wishlist.md](./wishlist.md)

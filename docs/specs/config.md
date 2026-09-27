@@ -16,7 +16,7 @@ slz config
 
 空ファイル時の `<blank>` 表示は未実装（[plans/v0.3.0/revisit.md](../plans/v0.3.0/revisit.md)）。
 
-検証: [tests/v0.2.0.md](../tests/v0.2.0.md)
+検証: [tests/config.md](../tests/config.md)
 
 ----
 
