@@ -10,6 +10,8 @@
 
 出荷済の正本は [specs/](../specs/README.md)。ハブ: [roadmap.md](../roadmap.md)
 
+実装済みの plans を specs へ移す対象は、現状なし（v0.3.0 / unscheduled はいずれも未実装）。
+
 ----
 
 以上

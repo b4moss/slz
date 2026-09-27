@@ -9,14 +9,15 @@
 
 You know the sentence "laziness is virtue". This CLI realize it your dark screen.
 
-`slz`は、**たまによく使う**コマンドを簡便に実行できる CLI です。ユーザーのコマンドを登録することもできます。
+`slz`は、**たまによく使う**コマンドを簡便に実行できる CLI です。ユーザーのコマンドを登録することもできます（方針。現行は未実装）。
 
 ```bash
+# 将来の例（未実装）
 slz mv . ../
 slz git rm-branches 'dev-*'
 ```
 
-設計の正本は [docs/README.md](./docs/README.md)。ロードマップは [docs/roadmap.md](./docs/roadmap.md)。OKF 索引は [docs/index.md](./docs/index.md)。
+設計の正本は [docs/README.md](./docs/README.md)。出荷済の仕様は [docs/specs/](./docs/specs/)。ロードマップは [docs/roadmap.md](./docs/roadmap.md)。OKF 索引は [docs/index.md](./docs/index.md)。
 
 ----
 

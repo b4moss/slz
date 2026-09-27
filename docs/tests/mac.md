@@ -19,13 +19,13 @@
 - バックグラウンド化しない
 
 #### テスト：正常系
-- darwin では `caffeinate` と `pmset displaysleepnow` をこの順で呼ぶ（実プロセスはモックしてよい）
+- darwin では `Start caffeinate` → `Run pmset displaysleepnow` → `Wait caffeinate` の順で呼ぶ（実プロセスはモックしてよい）
 - darwin で外部コマンドが成功すれば終了コード 0 である
 - `caffeinate` はバックグラウンド化せず、呼び出し側が完了を待つ
 
 #### テスト: 異常系
 - darwin 以外では終了コードが 0 でなく、`caffeinate` / `pmset` を起動しない
-- darwin で `caffeinate` が失敗したとき、終了コードが 0 でない
+- darwin で `caffeinate` が失敗したとき、終了コードが 0 でなく、`pmset` を起動しない
 - `slz mac dim extra` のように余剰な位置引数があるとき、終了コードが 0 でない
 - 未知の `slz mac nosuch` の終了コードが 0 でない
 

@@ -8,7 +8,7 @@ slz setup
 
 ## 振る舞い
 
-- 置き場は [README.md](../README.md) の XDG（`XDG_CONFIG_HOME/slz`、未設定なら `~/.config/slz`）
+- 置き場は `XDG_CONFIG_HOME/slz`（未設定なら `~/.config/slz`）。`XDG_STATE_HOME` / `XDG_CACHE_HOME` は読まない
 - 無ければ次を作る。既にあれば何もしない（冪等）
   - 設定ディレクトリ
   - 空の `config.yaml`

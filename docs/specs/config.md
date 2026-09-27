@@ -9,8 +9,8 @@ slz config
 ## 振る舞い
 
 - `$XDG_CONFIG_HOME/slz/config.yaml`（未設定なら `~/.config/slz/config.yaml`）を読む
-- ファイルがあれば中身をそのまま出す（空ファイルなら空でよい）
-- 無ければ終了コード非 0。標準エラーに `slz setup` を案内する
+- ファイルがあれば中身をそのまま出す（空ファイルなら空でよい。YAML としてパースしない）
+- 無ければ終了コード非 0。標準エラーに `slz setup` を案内する（文言例: `config.yaml not found; run slz setup`）
 - `$EDITOR` で開かない。キーの get/set はしない
 - 余剰な位置引数はエラー
 
