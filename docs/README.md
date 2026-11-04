@@ -70,7 +70,7 @@ Go は **ディスパッチャ兼、公式コマンドの実装**。シェルに
 
 方針: 名前が衝突したら **ビルトインが勝つ**。同じ名前のユーザーコマンドがある場合は警告する。きれいな対話が必要になったら、ユーザースクリプトのまま伸ばさず **ビルトインへ昇格** する。
 
-CLI なので、薄い DDD の層や CRUD Trait にそのまま準拠しなくてよい（[charter](./charter/README.md)）。思想は守る。
+CLI なので、薄い DDD の層や CRUD Trait にそのまま準拠しなくてよい（[charter](https://github.com/b4moss/charter/blob/v1/docs/charter/README.md)）。思想は守る。
 
 - 1 ユースケース 1 コマンド
 - 入口（引数・フラグ）と、対象の解決・実行を分ける
@@ -185,7 +185,7 @@ $XDG_CACHE_HOME/slz/           # 未設定なら ~/.cache/slz/
 - 現行の振る舞い: [specs/](./specs/README.md)
 - テスト仕様: [tests/](./tests/README.md)
 - これから: [roadmap.md](./roadmap.md) / [plans/](./plans/README.md)
-- 守るルール: [charter/](./charter/README.md)（git は [git-rule.md](./charter/git-rule.md)）
+- 守るルール: [charter/](https://github.com/b4moss/charter/blob/v1/docs/charter/README.md)（git は [git-rule.md](https://github.com/b4moss/charter/blob/v1/docs/charter/tech/git-rule.md)）
 - PO メモ: [wishlist.md](./wishlist.md)
 
 ----
