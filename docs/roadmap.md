@@ -1,6 +1,6 @@
 # slz ロードマップ
 
-詳細計画は [plans/](./plans/README.md)。現行仕様は [specs/](./specs/README.md)。開発ルールは [charter/](./charter/README.md)。PO メモは [wishlist.md](./wishlist.md)。
+詳細計画は [plans/](./plans/README.md)。現行仕様は [specs/](./specs/README.md)。開発ルールは [charter/](https://github.com/b4moss/charter/blob/v1/docs/charter/README.md)。PO メモは [wishlist.md](./wishlist.md)。
 
 ## 現状
 
